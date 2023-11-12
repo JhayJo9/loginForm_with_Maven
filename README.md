@@ -14,3 +14,4 @@
       </dependency>
    </dependencies>
 ```
+#after you paste it will automatically added in the dependencies/library the jar files need for database connection 
