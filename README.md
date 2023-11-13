@@ -1,4 +1,4 @@
-# Take note to paste in pox.xml file in maven project
+# Take note to paste in pom.xml file in maven project
 
  ```
  <dependencies>
