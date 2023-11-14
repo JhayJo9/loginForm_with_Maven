@@ -4,6 +4,7 @@
  */
 package com.mycompany.loginformwithmaven;
 
+import java.awt.Color;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
@@ -23,6 +24,16 @@ public class Main extends javax.swing.JFrame {
      */
     public Main() {
         initComponents();
+        
+            // jframe bg colors
+        Color kulay = new Color(240,245,255,255);
+        
+        getContentPane().setBackground(kulay);
+        
+        //
+        //jTable1.getContentPane().setBackground(kulay);
+        
+        
     }
      public void tableupdate(){
             int c;
@@ -109,12 +120,16 @@ public class Main extends javax.swing.JFrame {
         btn_exit = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setBackground(new java.awt.Color(250, 252, 252));
         setPreferredSize(new java.awt.Dimension(900, 650));
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowActivated(java.awt.event.WindowEvent evt) {
                 formWindowActivated(evt);
             }
         });
+
+        jPanel1.setBackground(new java.awt.Color(254, 255, 254));
+        jPanel1.setBorder(javax.swing.BorderFactory.createEtchedBorder(null, new java.awt.Color(102, 102, 102)));
 
         jLabel1.setFont(new java.awt.Font("Rockwell", 1, 24)); // NOI18N
         jLabel1.setText("MS ACCES DATABASE CONNECTION WITH JAVA NETBEANS");
@@ -124,39 +139,47 @@ public class Main extends javax.swing.JFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(50, 50, 50)
                 .addComponent(jLabel1)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(36, 36, 36)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(37, Short.MAX_VALUE)
                 .addComponent(jLabel1)
-                .addContainerGap(35, Short.MAX_VALUE))
+                .addGap(34, 34, 34))
         );
 
-        jPanel2.setBackground(new java.awt.Color(0, 204, 255));
+        jPanel2.setBackground(new java.awt.Color(254, 255, 254));
+        jPanel2.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jPanel2.setForeground(new java.awt.Color(0, 204, 255));
 
+        jLabel2.setFont(new java.awt.Font("Rockwell", 0, 12)); // NOI18N
         jLabel2.setText("Student no.:");
 
+        jLabel3.setFont(new java.awt.Font("Rockwell", 0, 12)); // NOI18N
         jLabel3.setText("Last name:");
 
+        jLabel4.setFont(new java.awt.Font("Rockwell", 0, 12)); // NOI18N
         jLabel4.setText("First name:");
 
+        jLabel5.setFont(new java.awt.Font("Rockwell", 0, 12)); // NOI18N
         jLabel5.setText("Middle Name:");
 
+        jLabel6.setFont(new java.awt.Font("Rockwell", 0, 12)); // NOI18N
         jLabel6.setText("Address");
 
+        jLabel7.setFont(new java.awt.Font("Rockwell", 0, 12)); // NOI18N
         jLabel7.setText("Birthday:");
 
+        jLabel8.setFont(new java.awt.Font("Rockwell", 0, 12)); // NOI18N
         jLabel8.setText("Department:");
 
+        jLabel9.setFont(new java.awt.Font("Rockwell", 0, 12)); // NOI18N
         jLabel9.setText("Course:");
 
-        jc_dept.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "School of Computer Studies", "School of Education", "School of Business Management", "School of Hospitality and Tourism Management", "------------select Department----------" }));
-        jc_dept.setSelectedIndex(4);
+        jc_dept.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "School of Computer Studies", "School of Education", "School of Business Management", "School of Hospitality and Tourism Management", "------------Select Department----------" }));
         jc_dept.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jc_deptActionPerformed(evt);
@@ -175,7 +198,7 @@ public class Main extends javax.swing.JFrame {
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap(22, Short.MAX_VALUE)
+                .addContainerGap(42, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel3)
@@ -199,7 +222,7 @@ public class Main extends javax.swing.JFrame {
                     .addComponent(txt_add, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jc_dept, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jc_course, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(22, Short.MAX_VALUE))
+                .addContainerGap(42, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -235,6 +258,8 @@ public class Main extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
+        jTable1.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jTable1.setFont(new java.awt.Font("Rockwell", 0, 12)); // NOI18N
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null, null, null, null},
@@ -250,9 +275,16 @@ public class Main extends javax.swing.JFrame {
                 "Student no.", "Last Name", "First Name", "Middle Name", "Address", "Birthday", "Department", "Course"
             }
         ));
+        jTable1.setGridColor(new java.awt.Color(255, 254, 255));
         jTable1.setShowGrid(true);
         jScrollPane1.setViewportView(jTable1);
 
+        jPanel3.setBackground(new java.awt.Color(254, 255, 254));
+        jPanel3.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+
+        btn_save.setBackground(new java.awt.Color(25, 119, 243));
+        btn_save.setFont(new java.awt.Font("Rockwell", 1, 12)); // NOI18N
+        btn_save.setForeground(new java.awt.Color(255, 255, 255));
         btn_save.setText("Save Record");
         btn_save.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -260,6 +292,9 @@ public class Main extends javax.swing.JFrame {
             }
         });
 
+        btn_delete.setBackground(new java.awt.Color(25, 119, 243));
+        btn_delete.setFont(new java.awt.Font("Rockwell", 1, 12)); // NOI18N
+        btn_delete.setForeground(new java.awt.Color(255, 255, 255));
         btn_delete.setText("Delete Record");
         btn_delete.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -267,10 +302,19 @@ public class Main extends javax.swing.JFrame {
             }
         });
 
+        btn_add.setBackground(new java.awt.Color(25, 119, 243));
+        btn_add.setFont(new java.awt.Font("Rockwell", 1, 12)); // NOI18N
+        btn_add.setForeground(new java.awt.Color(255, 255, 255));
         btn_add.setText("Add New Record");
 
+        btn_update.setBackground(new java.awt.Color(25, 119, 243));
+        btn_update.setFont(new java.awt.Font("Rockwell", 1, 12)); // NOI18N
+        btn_update.setForeground(new java.awt.Color(255, 255, 255));
         btn_update.setText("Update Record");
 
+        btn_exit.setBackground(new java.awt.Color(25, 119, 243));
+        btn_exit.setFont(new java.awt.Font("Rockwell", 1, 12)); // NOI18N
+        btn_exit.setForeground(new java.awt.Color(255, 255, 255));
         btn_exit.setText("Exit");
         btn_exit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -283,17 +327,17 @@ public class Main extends javax.swing.JFrame {
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
-                .addContainerGap(48, Short.MAX_VALUE)
+                .addGap(40, 40, 40)
                 .addComponent(btn_save)
-                .addGap(47, 47, 47)
+                .addGap(49, 49, 49)
                 .addComponent(btn_delete)
-                .addGap(45, 45, 45)
-                .addComponent(btn_add)
-                .addGap(43, 43, 43)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btn_add, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(52, 52, 52)
                 .addComponent(btn_update)
-                .addGap(48, 48, 48)
+                .addGap(50, 50, 50)
                 .addComponent(btn_exit)
-                .addGap(48, 48, 48))
+                .addGap(40, 40, 40))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -313,13 +357,13 @@ public class Main extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(30, Short.MAX_VALUE)
+                .addContainerGap(9, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(30, Short.MAX_VALUE))
+                .addContainerGap(9, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -364,7 +408,7 @@ public class Main extends javax.swing.JFrame {
              jc_course.addItem("B.S.E Major in Social Studies");
               jc_course.addItem("B.S.E Major in Filipino");
         }
-       else if(jc_dept.getSelectedItem().equals("------------select Department----------")){
+       else if(jc_dept.getSelectedItem().equals("------------Select Department----------")){
              jc_course.removeAllItems();
         }
         
