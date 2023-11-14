@@ -4,6 +4,14 @@
  */
 package com.mycompany.loginformwithmaven;
 
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.Statement;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+import java.util.*;
+import java.sql.*;
 /**
  *
  * @author JhayJTheGosu
@@ -15,6 +23,52 @@ public class Main extends javax.swing.JFrame {
      */
     public Main() {
         initComponents();
+    }
+     public void tableupdate(){
+            int c;
+            Connection con = null;
+            PreparedStatement pst = null;
+            
+            try{    
+            // connection
+            Class.forName("net.ucanaccess.jdbc.UcanaccessDriver");
+            // path for the accdb
+            // user dns / 64bits ORIG
+           // String url = "jdbc:ucanaccess://C:\\Users\\penal\\Documents\\JavaLogin.accdb";
+           // new database
+            String url = "jdbc:ucanaccess://JavaLoginwithmaven.accdb";
+            con = DriverManager.getConnection(url);
+            // error handling for query
+           
+                String sql = "select * from Studentinfotbl";
+               // Statement st = con.createStatement();
+                pst = con.prepareStatement(sql);
+                ResultSet rs = null;
+                rs = pst.executeQuery();
+                ResultSetMetaData rsd = rs.getMetaData();
+                c = rsd.getColumnCount();
+                DefaultTableModel dft = (DefaultTableModel)jTable1.getModel();
+                dft.setRowCount(0);
+                
+                while(rs.next()){
+                    Vector v2 = new Vector();
+                    for(int i= 1;i <= c; i++){
+                        v2.add(rs.getString("student_no"));
+                        v2.add(rs.getString("lastname"));
+                        v2.add(rs.getString("firstname"));
+                        v2.add(rs.getString("middlename"));
+                        v2.add(rs.getString("address"));
+                        v2.add(rs.getString("birthday"));
+                        v2.add(rs.getString("department"));
+                        v2.add(rs.getString("course"));
+                       
+                        
+                    }
+                    dft.addRow(v2);
+                }
+        }catch(Exception x){
+            System.out.println("error"+x);
+        }
     }
 
     /**
@@ -56,6 +110,11 @@ public class Main extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setPreferredSize(new java.awt.Dimension(900, 650));
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowActivated(java.awt.event.WindowEvent evt) {
+                formWindowActivated(evt);
+            }
+        });
 
         jLabel1.setFont(new java.awt.Font("Rockwell", 1, 24)); // NOI18N
         jLabel1.setText("MS ACCES DATABASE CONNECTION WITH JAVA NETBEANS");
@@ -330,6 +389,11 @@ public class Main extends javax.swing.JFrame {
        
         
     }//GEN-LAST:event_jc_courseActionPerformed
+
+    private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
+        // TODO add your handling code here:
+        tableupdate();
+    }//GEN-LAST:event_formWindowActivated
 
     /**
      * @param args the command line arguments
